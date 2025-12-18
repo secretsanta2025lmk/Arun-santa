@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>☠️⚠️Your Device is Hacked. Ask Arun to reveal his santa via Whatsapp⚠️☠️</title>
+
+  <style>
+    body {
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin-top: 20%;
+    }
+
+    .flash {
+      font-size: 40px;
+      font-weight: bold;
+      animation: flash 1s infinite;
+      color: red;
+    }
+
+    @keyframes flash {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flash">☠️⚠️Your Device is Hacked. Ask Arun to reveal his santa via Whatsapp⚠️☠️</div>
+
+  <button onclick="openWhatsApp()">Whatsapp Arun</button>
+
+  <!-- Alarm Sound -->
+  <audio id="alarm" autoplay loop>
+    <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function openWhatsApp() {
+      const phone = "919500506423";
+      const message = "Who is your Santa??? 🎅";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
