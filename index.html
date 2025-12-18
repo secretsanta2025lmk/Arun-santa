@@ -36,20 +36,38 @@
 </head>
 <body>
 
-  <div class="flash">☠️⚠️Your Device is Hacked and Sent Rs.50 to HessNatur Arun⚠️☠️</div>
+  <div class="flash">☠️⚠️Your Device is Hacked and Contact Arun⚠️☠️</div>
 
   <button onclick="openWhatsApp()">Text Him to collect your Money back</button>
 
   <!-- Alarm Sound -->
-  <audio id="alarm" loop>
+  <audio id="alarm">
     <source src="https://cdn.uppbeat.io/audio-files/8217105e2d58a8e4d9cf8e12b2665978/2a68c63689184003fedff3fe4c0ff267/7e30381163b48d50e55911353a5deb11/STREAMING-digital-watch-alarm-tomas-herudek-1-00-13.mp3" type="audio/mpeg">
   </audio>
 
-  <script>
-    function openWhatsApp() {
-      // Start alarm
-      const alarm = document.getElementById("alarm");
+ <script>
+let playCount = 0;
+const maxPlays = 5;
+
+function openWhatsApp() {
+  const alarm = document.getElementById("alarm");
+
+  // Reset count if button clicked again
+  playCount = 0;
+
+  alarm.currentTime = 0;
   alarm.play();
+
+  alarm.onended = function () {
+    playCount++;
+    if (playCount < maxPlays) {
+      alarm.currentTime = 0;
+      alarm.play();
+    }
+  };
+    let playCount = 0;
+const maxPlays = 5;
+    function openWhatsApp() {
       const phone = "919500506423";
       const message = "“Apologies! As your Secret Santa is having logistics & budget issue please give Rs.50 to this message sender so i will stop hacking their phone.🧑‍🎄Do a good deed on this Christmas Eve 🎄✨ and help them to stop my hacking mischief🤪.";
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
