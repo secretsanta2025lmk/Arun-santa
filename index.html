@@ -40,24 +40,26 @@
 
   <button onclick="openWhatsApp()">Text Him to collect your Money back</button>
 
-  <!-- Alarm Sound -->
-  <audio id="alarm">
-    <source src="https://cdn.uppbeat.io/audio-files/8217105e2d58a8e4d9cf8e12b2665978/2a68c63689184003fedff3fe4c0ff267/7e30381163b48d50e55911353a5deb11/STREAMING-digital-watch-alarm-tomas-herudek-1-00-13.mp3" type="audio/mpeg">
-  </audio>
+<!-- Alarm Sound -->
+<audio id="alarm">
+  <source src="https://cdn.uppbeat.io/audio-files/8217105e2d58a8e4d9cf8e12b2665978/2a68c63689184003fedff3fe4c0ff267/7e30381163b48d50e55911353a5deb11/STREAMING-digital-watch-alarm-tomas-herudek-1-00-13.mp3" type="audio/mpeg">
+</audio>
 
- <script>
+<script>
 let playCount = 0;
 const maxPlays = 5;
 
 function openWhatsApp() {
   const alarm = document.getElementById("alarm");
 
-  // Reset count if button clicked again
+  // Reset play count on every click
   playCount = 0;
 
+  // Start alarm
   alarm.currentTime = 0;
   alarm.play();
 
+  // Play alarm only 5 times
   alarm.onended = function () {
     playCount++;
     if (playCount < maxPlays) {
@@ -65,15 +67,12 @@ function openWhatsApp() {
       alarm.play();
     }
   };
-    let playCount = 0;
-const maxPlays = 5;
-    function openWhatsApp() {
-      const phone = "919500506423";
-      const message = "“Apologies! As your Secret Santa is having logistics & budget issue please give Rs.50 to this message sender so i will stop hacking their phone.🧑‍🎄Do a good deed on this Christmas Eve 🎄✨ and help them to stop my hacking mischief🤪.";
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
-    }
-  </script>
 
-</body>
-</html>
+  // Open WhatsApp after alarm starts
+  const phone = "919500506423";
+  const message = "Apologies! As your Secret Santa is having logistics & budget issue, please give Rs.50 to this message sender so I will stop hacking their phone. 🧑‍🎄 Do a good deed this Christmas Eve 🎄✨ and stop my hacking mischief 🤪";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+}
+</script>
